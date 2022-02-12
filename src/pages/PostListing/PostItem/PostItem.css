@@ -1,0 +1,76 @@
+
+
+
+.giglisting-container{
+    width: 100%;
+    opacity: 70%;
+    border: lightgray solid 1px;
+   
+  
+}
+
+.giglisting-exp{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2%;
+     /* margin: 10px 5px 5px 0px; */
+      padding: 4px 8px; 
+    border-radius: 4px;
+    background-color: rgba(17, 137, 54, 0.1);
+    color: #118936;
+    margin-bottom: 2%;
+    }
+
+    
+    
+    .giglisting-head{
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 2%;
+    }
+
+    .giglisting-txt{
+        color:#a5a2a2;
+        font-size: 12px;
+        font-weight: 500px;
+        margin-bottom: 15%;
+    }
+
+
+.giglisting-btn1{
+    color:#9c9c9c;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.giglisting-btn2{
+    color:#3c3c3c;
+    background-color: #ffffff;
+}
+
+.giglisting-modified{
+    color:#787878;
+    /* background-color: blue; */
+    font-size: 10px;
+    font-weight: 400;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.giglisting-profileDivider {
+    background-color: lightgray;
+    height: 1px;
+    opacity: 70%;
+    /* margin: 15px 0; */
+  }
+  .mr-bottom{
+      margin-bottom: 5%;
+
+  }

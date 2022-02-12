@@ -5,8 +5,8 @@ const postUrl = `https://jsonplaceholder.typicode.com/posts`;
 
 //View All posts 
 export const postListApi = async (request) => {
-  if (request.payload.id) {
-    return await axios.get(`${postUrl}/${request.payload.id}`);  
+  if (request.payload.search) {
+    return await axios.get(`${postUrl}/${request.payload.search}`);  
   }
   return await axios.get(`${postUrl}`);
 };
@@ -22,5 +22,6 @@ export const updatepostApi = async (request) => {
 };
 export const deletePostApi = async (request) => {
  
+  // console.log("api,,,",request.payload);
   return await axios.delete(`${postUrl}/${request.payload.id}`);
 };

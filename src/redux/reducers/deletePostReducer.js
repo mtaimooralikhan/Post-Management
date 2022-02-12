@@ -2,6 +2,7 @@ import { types } from "../action-types";
 
 const initialState = {
   loading: false,
+  success: false,
   posts: [],
   error: false,
 };
@@ -18,6 +19,7 @@ const deletePostReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        success: true,
         posts: action.payload,
         error: false,
       };
@@ -25,6 +27,7 @@ const deletePostReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        success: false,
         posts: [],
         error: true,
       };

@@ -25,16 +25,11 @@
     justify-content: space-between;
 }
 .searchContainer{
-    /* border-bottom: 1px solid #e2e2e2; */
-    /* background: coral; */
+    
     padding-top: 10px;
     padding-bottom: 6px;
     
     
-}
-.dropdown{
-    /* background: cornflowerblue; */
-
 }
 
 .title{
@@ -45,14 +40,4 @@
     color: #FC3163;
     font-size: 12px;
     text-decoration: underline dotted red;
-}
-.counter{
-    /* padding-left: 25px; */
-    font-size: 18px;
-    margin-left: 10px;
-    background-color: #4b4a4b;
-    color:white;
-    padding: .2em 0.6em 0.3em;
-    border-radius: 1em;
-    text-align: center;
 }
