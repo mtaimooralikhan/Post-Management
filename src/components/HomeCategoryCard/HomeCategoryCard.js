@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Row, Typography, Button, Divider } from 'antd'
 import './HomeCategoryCard.css'
+import history from '../../routes/history';
 
 const { Title, Text } = Typography;
 const HomeCategoryCard = props => {
@@ -30,6 +31,9 @@ const HomeCategoryCard = props => {
                 
             </Row>
             <Divider />
+            <Row>
+                <Button style={{background:'red', color:'white'}} onClick={()=>{history.push('./createpost')}}>Create a post</Button>
+            </Row>
             <Row style={{ width: '100%', height: '90%' }}>
                 {
 

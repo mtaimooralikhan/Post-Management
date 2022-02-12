@@ -1,33 +1,33 @@
 import React, {useState} from 'react'
-import { Input, Button,Col, Row ,Form, message} from "antd";
+import { Input, Button,Col, Row ,Form, message  } from "antd";
 import { SearchOutlined, ArrowLeftOutlined,LoadingOutlined } from "@ant-design/icons";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 // import history from "../../../routes/history"; 
-import { createPost } from '../../redux/actions'; 
+import { updatePost } from '../../redux/actions'; 
 
-export default function CreatePost() {
+export default function UpdatePost() {
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const [userId, setuserId] = useState()
-  const [title, setTitle] = useState('')
-  const [body, setbody] = useState('')
+  const [userId, setuserId] = useState(location.state.userId)
+  const [title, setTitle] = useState(location.state.title)
+  const [body, setbody] = useState(location.state.body)
   
   const onFinish=()=>{
-
-    dispatch(createPost({
-    
+    dispatch(updatePost({
+      "id": location.state.id,
       "userId": userId,
       "title": title,
       "body" : body
     }))
-    message.success("Post created successfully!")
+    message.success("Post Updated successfully!")
   }
+
 
   return (
     <>
-      <h1>Create Post</h1>
+      <h1>Update Post</h1>
       
       <div>
       <Form

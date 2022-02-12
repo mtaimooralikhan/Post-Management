@@ -4,6 +4,7 @@ import history from "./history";
 import PostListing from "../pages/PostListing/PostListing";
 import PostDetails from "../pages/PostDetails/PostDetails";
 import CreatePost from "../pages/CreatePost/CreatePost";
+import UpdatePost from "../pages/UpdatePost/UpdatePost";
 
 export const AppRouter = (props) => {
   const { authToken } = props;
@@ -22,8 +23,11 @@ export const AppRouter = (props) => {
               <Route exact path="/postdetails">
                 <PostDetails />
               </Route>
-              <Route exact path="/post">
+              <Route exact path="/createpost">
                 <CreatePost />
+              </Route>
+              <Route exact path="/updatePost">
+                <UpdatePost />
               </Route>
             </React.Fragment>
           )}

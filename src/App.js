@@ -7,57 +7,58 @@ import { AppRouter } from "./routes/router";
 import Footer from "./components/Footer";
 import { fetchData } from "./redux/actions";
 import { useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Col, Row, Button } from "antd";
+import history from "./routes/history";
 
-function App(props) {
-  const [stage, seStage] = useState("");
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker
-        .register(`${process.env.PUBLIC_URL}/sw.js`)
-        .then(() => {
-          console.log("SW Registered");
-        });
-  }
+function App() {
+  
 
-  const receiveStage = (stage) => {
-    seStage(stage);
+  // const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
+
+  const [auth, setAuth] = useState(false);
+  
+
+  const loginHandler = () => {
+    // loginWithRedirect();
+    setAuth(true);
   };
 
-  // useEffect(() => {
-  //   props.fetchData();
-  // }, []);
-
-  // useEffect(() => {
-  //   if (!props.loading && props.user) {
-  //     console.log("USER:", props.user);
-  //   }
-  // }, [props.user]);
+  const logoutHandler=()=>{
+    // logout()
+    setAuth(false)
+  }
+  useEffect(() => {
+    if (auth) {
+      history.push("/postlist");
+    }
+  }, [auth]);
 
   return (
-      <React.Fragment>
-        {/* <Header changeStage={receiveStage} stage={stage} /> */}
-        <AppRouter authToken={true}  />
-        <Footer />
-      </React.Fragment>
+    <React.Fragment>
+      <Row style={{ display: "flex", justifyContent: "end" }}>
+        <Col>
+          {!auth ? (
+            <Button onClick={() => loginHandler()}>Sign In</Button>
+          ) : null}
+        </Col>
+        <Col>
+        {
+          auth?
+          <Button onClick={() => logoutHandler()}>
+            Sign Out
+          </Button>
+          :
+          null
+        }
+          
+        </Col>
+      </Row>
+
+      <AppRouter authToken={auth} />
+      <Footer />
+    </React.Fragment>
   );
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     authToken: state.authReducer.user.authToken,
-//     loading: state.profileReducer.loading,
-//     user: state.profileReducer.user,
-//     error: state.profileReducer.error,
-//   };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     fetchData: (params) => {
-//       dispatch(fetchData(params));
-//     },
-//   };
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default App;

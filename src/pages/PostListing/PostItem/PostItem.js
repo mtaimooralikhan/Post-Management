@@ -8,13 +8,13 @@ import { useDispatch } from "react-redux";
 import {deletePost} from "../../../redux/actions"
 import { useHistory } from "react-router";
 
-export default function PostItem({item}) {
+export default function PostItem(props) {
     const dispatch = useDispatch();
     const history = useHistory();
     const ondeleteHandler =()=>{
         console.log("work");
         dispatch(deletePost({
-            "id" :item.id,
+            "id" :props.id,
         }))
     }
   return (
@@ -25,7 +25,7 @@ export default function PostItem({item}) {
         md={18}
         lg={8}
         xl={8}
-        key={item.id}
+        key={props.id}
         className="giglisting-container"
       
       >
@@ -47,15 +47,15 @@ export default function PostItem({item}) {
                   style={{ width: "20px", height: "20px", marginTop: "2%" }}
                   onClick={()=>{
                       history.push({
-                        pathname:'/post',
+                        pathname:'/updatepost',
                           state:{
-                            id: item.id,
-                            userId: item.userId,  
-                            title: item.title,
-                            body : item.body,
+                            id: props.id,
+                            userId: props.userId,  
+                            title: props.title,
+                            body : props.body,
                           }  
                         })
-                  }}
+                  }}    
                 
                 />
               </div>
@@ -69,12 +69,12 @@ export default function PostItem({item}) {
               </div>
             </div>
           </Row>
-          <div className="giglisting-head">ID {item.id}</div>
-          <div className="giglisting-head">User ID {item.userId}</div>
+          <div className="giglisting-head">ID {props.id}</div>
+          <div className="giglisting-head">User ID {props.userId}</div>
           <div className="giglisting-profileDivider"></div>
           <div className="giglisting-txt">
-            <div>Title: {item.title}</div>
-            <div>Body :{item.body}</div>
+            <div>Title: {props.title}</div>
+            <div>Body :{props.body}</div>
           </div>
          
         </div>
